@@ -15,13 +15,11 @@ public class Runner {
 		
 		//scanner
 		Scanner sc = new Scanner(System.in);
-		
-		
 		Map map = new Map(10, 10);
-		
 		Player player = new Player("dave", 0,0);
-		PointOfInterest tree = new PointOfInterest("oak", 1,1);
+		PointOfInterest tree = new PointOfInterest("Christmas tree", 1,1);
 		Treasure treasure = new Treasure("Gold", 2,3);
+		Compass compass = new Compass();
 		
 		map.listOfObjects.add(player);
 		map.listOfObjects.add(tree);
@@ -71,6 +69,7 @@ public class Runner {
 			{
 				System.out.println("you found the treasure!!!");
 				stillPlaying = false;
+				break;
 			}
 			else if(input.equals("north"))
 			{
@@ -96,6 +95,8 @@ public class Runner {
 			System.out.println("moving "+input);
 			System.out.println("x position: "+player.getPositionX());
 			System.out.println("y position: "+player.getPositionY());
+			System.out.println("Distance to treasure: "+compass.distanceToTreasure(player.getPositionX(), player.getPositionY(), treasure.getPositionX(), treasure.getPositionY()));
+			System.out.println("Distance to tree: "+compass.distanceToInterest(player.getPositionX(), player.getPositionY(), tree.getPositionX(), tree.getPositionY()));
 		}
 		
 		
